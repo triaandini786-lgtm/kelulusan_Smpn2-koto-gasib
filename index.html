@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENGUMUMAN KELULUSAN SMP NEGERI 2 KOTO GASIB</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap');
+        .font-serif-elegant { font-family: 'Cinzel', serif; }
+        .font-sans-modern { font-family: 'Inter', sans-serif; }
+        @media print {
+            body { background: white !important; color: black !important; }
+            .no-print { display: none !important; }
+            .print-card { border: none !important; box-shadow: none !important; background: white !important; padding: 0 !important; margin: 0 !important; width: 100% !important; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 font-sans-modern min-h-screen text-slate-100 flex flex-col justify-between">
+
+    <header class="no-print w-full py-6 px-6 border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-md shadow-lg">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h1 class="text-xl md:text-2xl font-bold font-serif-elegant tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200">
+                    PENGUMUMAN KELULUSAN
+                </h1>
+                <p class="text-lg md:text-xl font-semibold text-slate-200">SMP Negeri 2 Koto Gasib</p>
+                <p class="text-xs uppercase tracking-widest text-slate-400 font-medium">Tahun Pelajaran 2025/2026</p>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-800/40 p-2 rounded-xl border border-slate-700/30">
+                <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w100" alt="Logo 1" class="h-12 w-auto object-contain">
+                <img src="https://drive.google.com/thumbnail?id=1lKN-Eh-YCzlyALEhuqjYj4b4PQk-dGEU&sz=w100" alt="Logo 2" class="h-12 w-auto object-contain">
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-8">
+        
+        <div id="loginForm" class="no-print bg-slate-900/90 border border-slate-700/60 backdrop-blur-lg p-6 md:p-8 rounded-2xl shadow-2xl w-full max-w-md">
+            <div class="text-center mb-6">
+                <div class="mx-auto w-14 h-14 bg-amber-500/10 border border-amber-500/30 rounded-full flex items-center justify-center mb-3">
+                    <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-lg font-semibold text-white">Portal Akses Kelulusan</h2>
+                <p class="text-xs text-slate-400 mt-1">Gunakan NISN & Tanggal Lahir Anda sesuai data raport</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Nomor Induk Siswa Nasional (NISN)</label>
+                    <input type="text" id="nisnInput" placeholder="Contoh: 0111552477" 
+                        class="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all text-sm font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Tanggal Lahir Panjang</label>
+                    <input type="text" id="tglInput" placeholder="Contoh: Siak, 22 Agustus 2011" 
+                        class="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all text-sm">
+                </div>
+                <button onclick="validasiAwal()" 
+                    class="w-full mt-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold py-2.5 rounded-xl transition duration-200 shadow-lg cursor-pointer text-sm">
+                    Periksa Kelulusan
+                </button>
+            </div>
+            <div id="errorBox" class="hidden mt-4 p-3 bg-rose-950/60 border border-rose-500/40 text-rose-300 rounded-xl text-center text-xs">
+                ⚠️ NISN atau Tanggal Lahir salah! Samakan besar kecil hurufnya (Contoh: Siak, S-nya besar).
+            </div>
+        </div>
+
+        <div id="readyModal" class="no-print hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50">
+            <div class="bg-slate-900 border border-slate-700 p-6 md:p-8 rounded-2xl max-w-sm w-full text-center shadow-2xl">
+                <div class="text-5xl mb-4 animate-bounce">✉️</div>
+                <h3 class="text-xl font-bold text-white mb-2">Apakah kamu siap?</h3>
+                <p class="text-sm text-slate-400 mb-6">Amplop digital pengumuman hasil akhir kamu sudah siap untuk dibuka.</p>
+                <div class="flex flex-col gap-2">
+                    <button onclick="bukaHasil()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-xl transition cursor-pointer text-sm shadow-lg">
+                        Ya, Saya Siap!
+                    </button>
+                    <button onclick="tutupModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 py-2 rounded-xl transition cursor-pointer text-xs">
+                        Kembali
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultCard" class="hidden w-full max-w-3xl bg-white text-slate-900 p-6 md:p-10 rounded-xl shadow-2xl print-card border border-slate-200">
+            <div class="text-center border-b-2 border-slate-900 pb-4 mb-6 flex justify-between items-center gap-4">
+                <div class="text-left">
+                    <h2 class="text-xl font-bold tracking-tight">SURAT KETERANGAN HASIL KELULUSAN</h2>
+                    <p class="text-sm font-semibold">SMP NEGERI 2 KOTO GASIB</p>
+                    <p class="text-xs text-slate-500">Tahun Pelajaran 2025/2026</p>
+                </div>
+                <div class="flex gap-2">
+                    <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w100" alt="Logo" class="h-10 w-auto">
+                    <img src="https://drive.google.com/thumbnail?id=1lKN-Eh-YCzlyALEhuqjYj4b4PQk-dGEU&sz=w100" alt="Logo" class="h-10 w-auto">
+                </div>
+            </div>
+
+            <p class="text-sm mb-4">Berdasarkan hasil rapat pleno dewan guru mengenai evaluasi akhir siswa, dinyatakan bahwa:</p>
+
+            <table class="w-full mb-8 text-sm">
+                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium w-40">Nama Peserta</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-bold uppercase" id="outNama">-</td></tr>
+                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">Tempat, Tanggal Lahir</td><td class="py-2.5 px-2">:</td><td class="py-2.5" id="outTTL">-</td></tr>
+                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">NISN</td><td class="py-2.5 px-2">:</td><td class="py-2.5 tracking-wider" id="outNISN">-</td></tr>
+                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">Nilai Rata-rata</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-semibold text-blue-700" id="outNilai">-</td></tr>
+                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">Status Kelulusan</td><td class="py-2.5 px-2">:</td><td class="py-2.5"><span id="outStatus" class="inline-block font-extrabold px-3 py-1 rounded text-sm uppercase tracking-wider"></span></td></tr>
+            </table>
+
+            <div class="grid grid-cols-2 mt-12 items-end">
+                <div>
+                    <div class="w-24 h-32 border-2 border-dashed border-slate-400 bg-slate-50 flex items-center justify-center text-center p-2 rounded">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Foto 3x4<br>(Akan dimasukkan nanti)</span>
+                    </div>
+                </div>
+
+                <div class="text-right text-sm">
+                    <p class="mb-1">Koto Gasib, 02 Juni 2026</p>
+                    <p class="font-medium">Kepala SMP Negeri 2 Koto Gasib,</p>
+                    <div class="my-2 flex justify-end">
+                        <img src="https://drive.google.com/thumbnail?id=1fCT0SW8CuGyEPNiVc43pnD5r3luCU1DW&sz=w200" alt="TTD Kepsek" class="h-16 w-auto object-contain">
+                    </div>
+                    <p class="font-bold underline decoration-slate-900">DESMA SUSANTI, S.Pd.</p>
+                    <p class="text-xs text-slate-600">NIP. 197512142008012006</p>
+                </div>
+            </div>
+
+            <div class="no-print mt-8 pt-4 border-t border-slate-200 flex justify-end gap-3">
+                <button onclick="kembaliCek()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition font-medium text-xs cursor-pointer">
+                    ⬅️ Periksa NISN Lain
+                </button>
+                <button onclick="window.print()" class="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl transition text-xs shadow cursor-pointer">
+                    🖨️ Cetak Surat Kelulusan
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="no-print w-full bg-slate-950/80 border-t border-slate-800/60 text-slate-500 text-center py-4 text-xs tracking-wide">
+        &copy; 2026 SMP Negeri 2 Koto Gasib. Hak Cipta Dilindungi Undang-Undang.
+    </footer>
+
+    <script>
+        // DATABASE SISWA (Diambil langsung dari file DATA NAMA KELAS 9.xlsx)
+        const databaseSiswa = {
+            "0111552477": { nama: "Ahmad Hanif Ramadhan", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS" },
+            "0112086831": { nama: "Ahmad Vardhan Ansori", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", status: "LULUS" },
+            "0117382881": { nama: "Akbar Maulana", ttl: "Siak, 22 April 2011", nilai: "88.25", status: "LULUS" },
+            "0105438523": { nama: "Alex Zidan Pangestu", ttl: "Siak, 11 Mei 2010", nilai: "83.35", status: "LULUS" },
+            "0103532915": { nama: "Anisa Nurhidayah", ttl: "Pelalawan, 26 Oktober 2010", nilai: "84.90", status: "LULUS" },
+            "0105142048": { nama: "Ardiyansah Putra Pratama", ttl: "Siak, 20 Juli 2010", nilai: "84.10", status: "LULUS" },
+            "0107949128": { nama: "Asy Syifa Syafitri", ttl: "Siak, 19 September 2010", nilai: "86.98", status: "LULUS" },
+            "0113053584": { nama: "Cahaya Lestari", ttl: "Aek Nabara, 14 Maret 2011", nilai: "86.53", status: "LULUS" },
+            "0101742208": { nama: "Datin Marsya Faathihah Syarif", ttl: "Pekanbaru, 15 Desember 2010", nilai: "85.29", status: "LULUS" },
+            "0108381664": { nama: "Ega Setyawan", ttl: "Siak, 11 Desember 2010", nilai: "83.48", status: "LULUS" },
+            "0117173055": { nama: "Filza Farzana", ttl: "Siak, 11 Mei 2011", nilai: "88.34", status: "LULUS" },
+            "0117486691": { nama: "Lathif Aryansah", ttl: "Siak, 6 Februari 2011", nilai: "83.03", status: "LULUS" },
+            "0111109622": { nama: "Lila Amelia Harahap", ttl: "Pekanbaru, 12 Mei 2011", nilai: "86.01", status: "LULUS" },
+            "0102231878": { nama: "Malakhian Ruby Al-Basri", ttl: "Bali, 8 Oktober 2010", nilai: "84.03", status: "LULUS" },
+            "0106025956": { nama: "Najla Kayyasah", ttl: "Kerinci, 9 Desember 2010", nilai: "84.50", status: "LULUS" }
+        };
+
+        let activeNisn = "";
+
+        function validasiAwal() {
+            const nisn = document.getElementById('nisnInput').value.trim();
+            const tgl = document.getElementById('tglInput').value.trim();
+            const errorBox = document.getElementById('errorBox');
+
+            errorBox.classList.add('hidden');
+
+            if (nisn === "" || tgl === "") {
+                alert("Mohon isi NISN dan Tanggal Lahir lengkap terlebih dahulu!");
+                return;
+            }
+
+            // Validasi kecocokan NISN dan Tanggal Lahir
+            if (databaseSiswa[nisn] && databaseSiswa[nisn].ttl === tgl) {
+                activeNisn = nisn;
+                document.getElementById('readyModal').classList.remove('hidden');
+            } else {
+                errorBox.classList.remove('hidden');
+            }
+        }
+
+        function tutupModal() {
+            document.getElementById('readyModal').classList.add('hidden');
+            activeNisn = "";
+        }
+
+        function bukaHasil() {
+            const siswa = databaseSiswa[activeNisn];
+            
+            // Pasang data ke lembar kelulusan
+            document.getElementById('outNama').innerText = siswa.nama;
+            document.getElementById('outTTL').innerText = siswa.ttl;
+            document.getElementById('outNISN').innerText = activeNisn;
+            document.getElementById('outNilai').innerText = siswa.nilai;
+            
+            const statusBadge = document.getElementById('outStatus');
+            statusBadge.innerText = siswa.status;
+            
+            if (siswa.status === "LULUS") {
+                statusBadge.className = "inline-block font-extrabold px-3 py-1 rounded text-sm uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+            } else {
+                statusBadge.className = "inline-block font-extrabold px-3 py-1 rounded text-sm uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+            }
+
+            // Ganti tampilan halaman
+            document.getElementById('readyModal').classList.add('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('resultCard').classList.remove('hidden');
+        }
+
+        function kembaliCek() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('resultCard').classList.add('hidden');
+            document.getElementById('nisnInput').value = "";
+            document.getElementById('tglInput').value = "";
+            activeNisn = "";
+        }
+    </script>
+</body>
+</html>
