@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KELULUSAN SMP NEGERI 2 KOTO GASIB</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;700;800&family=Playfair+Display:wght=700&display=swap');
@@ -90,7 +89,7 @@
     <div class="blob blob-3"></div>
   </div>
 
-  <header class="w-full py-6 px-6 border-b border-blue-100 bg-white/70 backdrop-blur-md sticky top-0 z-40">
+  <header id="mainHeader" class="w-full py-6 px-6 border-b border-blue-100 bg-white/70 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-center md:text-left">
         <h1 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">PENGUMUMAN KELULUSAN</h1>
@@ -105,7 +104,7 @@
     </div>
   </header>
 
-  <main class="flex-grow flex items-center justify-center px-4 py-10">
+  <main class="flex-grow flex items-center justify-center px-4 py-6">
     
     <div id="loginForm" class="fade-in bg-white/90 backdrop-blur-md border border-blue-50 p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-blue-200/50 w-full max-w-md">
       <div class="text-center mb-8">
@@ -148,8 +147,8 @@
       </div>
     </div>
 
-    <div id="wrapperHasil" class="hidden flex flex-col items-center gap-6 w-full max-w-3xl">
-      <div id="resultCard" class="w-full bg-white text-slate-900 p-8 md:p-12 rounded-[2rem] shadow-2xl border border-blue-50">
+    <div id="wrapperHasil" class="hidden flex flex-col items-center gap-6 w-full max-w-3xl fade-in">
+      <div id="resultCard" class="w-full bg-white text-slate-900 p-6 md:p-12 rounded-[2rem] shadow-2xl border border-blue-50">
         <div class="flex justify-between items-start border-b-4 border-slate-900 pb-6 mb-8 gap-4">
           <div class="text-left">
             <h2 class="text-xl md:text-2xl font-bold font-elegant text-navy">SURAT KETERANGAN HASIL KELULUSAN</h2>
@@ -161,17 +160,17 @@
           </div>
         </div>
 
-        <p class="text-sm leading-relaxed mb-8">Kepala SMP Negeri 2 Koto Gasib menerangkan bahwa siswa di bawah ini:</p>
+        <p class="text-sm leading-relaxed mb-6">Kepala SMP Negeri 2 Koto Gasib menerangkan bahwa siswa di bawah ini:</p>
 
-        <table class="w-full mb-10 text-[15px]">
-          <tr><td class="py-3 font-semibold text-slate-500 w-48 uppercase text-xs">Nama Peserta</td><td class="py-3 px-2">:</td><td class="py-3 font-bold text-lg text-blue-900 uppercase" id="outNama">-</td></tr>
-          <tr><td class="py-3 font-semibold text-slate-500 uppercase text-xs">Tempat, Tanggal Lahir</td><td class="py-3 px-2">:</td><td class="py-3 font-medium" id="outTTL">-</td></tr>
-          <tr><td class="py-3 font-semibold text-slate-500 uppercase text-xs">NISN Siswa</td><td class="py-3 px-2">:</td><td class="py-3 font-medium" id="outNISN">-</td></tr>
-          <tr><td class="py-3 font-semibold text-slate-500 uppercase text-xs">Nilai Rata-rata</td><td class="py-3 px-2">:</td><td class="py-3 font-bold text-blue-600" id="outNilai">-</td></tr>
-          <tr><td class="py-3 font-semibold text-slate-500 uppercase text-xs">Status Kelulusan</td><td class="py-3 px-2">:</td><td class="py-3"><span id="outStatus" class="inline-block font-black px-6 py-1.5 rounded-lg text-md bg-blue-50 text-blue-700 border border-blue-200 uppercase tracking-widest">LULUS</span></td></tr>
+        <table class="w-full mb-8 text-[15px]">
+          <tr><td class="py-2.5 font-semibold text-slate-500 w-42 uppercase text-xs">Nama Peserta</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-bold text-lg text-blue-900 uppercase" id="outNama">-</td></tr>
+          <tr><td class="py-2.5 font-semibold text-slate-500 uppercase text-xs">Tempat, Tanggal Lahir</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-medium" id="outTTL">-</td></tr>
+          <tr><td class="py-2.5 font-semibold text-slate-500 uppercase text-xs">NISN Siswa</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-medium" id="outNISN">-</td></tr>
+          <tr><td class="py-2.5 font-semibold text-slate-500 uppercase text-xs">Nilai Rata-rata</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-bold text-blue-600" id="outNilai">-</td></tr>
+          <tr><td class="py-2.5 font-semibold text-slate-500 uppercase text-xs">Status Kelulusan</td><td class="py-2.5 px-2">:</td><td class="py-2.5"><span id="outStatus" class="inline-block font-black px-6 py-1.5 rounded-lg text-md bg-blue-50 text-blue-700 border border-blue-200 uppercase tracking-widest">LULUS</span></td></tr>
         </table>
 
-        <div class="grid grid-cols-2 mt-12">
+        <div class="grid grid-cols-2 mt-8">
           <div>
             <div class="w-32 h-44 border-2 border-dashed border-slate-200 bg-slate-50 flex items-center justify-center rounded-xl relative overflow-hidden">
               <img id="fotoSiswa" src="" alt="Pas Foto" class="absolute inset-0 w-full h-full object-cover rounded-xl" style="display:none;" crossorigin="anonymous">
@@ -190,12 +189,8 @@
         </div>
       </div>
 
-      <div class="w-full flex flex-col md:flex-row justify-center gap-4 mb-10">
-        <button onclick="unduhGambar()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition text-sm uppercase shadow-xl cursor-pointer flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          Simpan Gambar (JPG)
-        </button>
-        <button onclick="kembaliCek()" class="px-8 py-4 bg-white border border-slate-200 text-slate-600 rounded-2xl font-bold text-sm uppercase hover:bg-slate-50 transition cursor-pointer">
+      <div class="w-full flex justify-center mb-6">
+        <button onclick="kembaliCek()" class="px-10 py-4 bg-blue-600 text-white shadow-lg shadow-blue-200/50 rounded-2xl font-bold text-sm uppercase hover:bg-blue-700 transition cursor-pointer">
           Cek NISN Lain
         </button>
       </div>
@@ -203,8 +198,8 @@
 
   </main>
 
-  <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-bold tracking-widest uppercase">
-    © 2026 SMP NEGERI 2 KOTO GASIB. SELURUH HAK CIPTA DILINDUNGI.
+  <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-bold tracking-widest uppercase mt-auto">
+    © 2026 SMP NEGERI 2 KOTO GASIB
   </footer>
 
   <script>
@@ -328,33 +323,18 @@
       };
 
       tutupModal();
+      document.getElementById('mainHeader').classList.add('hidden'); // Sembunyikan Header atas
       document.getElementById('loginForm').classList.add('hidden');
       document.getElementById('wrapperHasil').classList.remove('hidden');
       sebarConfetti();
     }
 
     function kembaliCek() {
+      document.getElementById('mainHeader').classList.remove('hidden'); // Munculkan kembali Header atas
       document.getElementById('loginForm').classList.remove('hidden');
       document.getElementById('wrapperHasil').classList.add('hidden');
       document.getElementById('nisnInput').value = "";
       document.getElementById('tglInput').value = "";
-    }
-
-    function unduhGambar() {
-      const kartu = document.getElementById('resultCard');
-      const namaSiswa = document.getElementById('outNama').innerText;
-      
-      setTimeout(() => {
-        html2canvas(kartu, {scale: 2, useCORS: true, allowTaint: false, backgroundColor: "#ffffff" }).then(canvas => {
-          const link = document.createElement('a');
-          link.download = `Surat_Kelulusan_${namaSiswa}.jpg`;
-          link.href = canvas.toDataURL('image/jpeg', 0.95);
-          link.click();
-        }).catch(err => {
-          alert("Gagal memproses gambar otomatis. Silakan ambil screenshot layar Anda.");
-          console.error(err);
-        });
-      }, 500);
     }
   </script>
 </body>
