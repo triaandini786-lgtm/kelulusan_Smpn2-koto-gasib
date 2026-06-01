@@ -13,27 +13,9 @@
         .bg-custom { background: radial-gradient(circle at top right, #dbeafe 0%, #ffffff 50%, #f1f5f9 100%); }
         .fade-in { animation: fadeIn 0.8s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-        .logo-img {
-            height: 3.5rem;
-            width: auto;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-        }
-        .logo-img-surat {
-            height: 4rem;
-            width: auto;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-        }
+        .logo-container { display: flex; align-items: center; gap: 1rem; background: transparent !important; border: none !important; box-shadow: none !important; }
+        .logo-img { height: 3.5rem; width: auto; object-fit: contain; mix-blend-mode: multiply; }
+        .logo-img-surat { height: 4rem; width: auto; object-fit: contain; mix-blend-mode: multiply; }
     </style>
 </head>
 <body class="bg-custom min-h-screen flex flex-col text-slate-800">
@@ -47,13 +29,12 @@
             <div class="logo-container">
                 <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w200" alt="Logo Sekolah" class="logo-img">
                 <div class="h-8 w-[1px] bg-blue-200"></div>
-                <img src="https://images.wikimedia.org/math/8/0/5/8051770b02927958e5d6d8c0bdf05a96.png" alt="Logo Tut Wuri" class="logo-img">
+                <img src="https://cdn.jsdelivr.net/gh/ezbukan/assets/tutwuri.png" alt="Logo Tut Wuri" class="logo-img">
             </div>
         </div>
     </header>
 
     <main class="flex-grow flex items-center justify-center px-4 py-10">
-        
         <div id="loginForm" class="fade-in bg-white border border-blue-50 p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-blue-200/50 w-full max-w-md">
             <div class="text-center mb-8">
                 <div class="mx-auto w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 rotate-3">
@@ -64,15 +45,14 @@
                 <h2 class="text-2xl font-bold text-slate-900">Halo, Selamat Datang</h2>
                 <p class="text-sm text-slate-500 mt-2">Silakan masukkan data diri Anda dengan benar untuk melihat hasil akhir.</p>
             </div>
-            
             <div class="space-y-5">
                 <div>
                     <label class="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-2 ml-1">NISN Siswa</label>
-                    <input type="text" id="nisnInput" maxlength="10" placeholder="Contoh: 0111552477" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 focus:outline-none transition-all font-medium">
+                    <input type="text" id="nisnInput" maxlength="10" placeholder="Contoh: 0111552477" class="w-full px-5 py-3.5 bg-slate-55 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 focus:outline-none transition-all font-medium">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-2 ml-1">Tanggal Lahir</label>
-                    <input type="text" id="tglInput" maxlength="10" placeholder="Contoh: 22082011 (Otomatis Jadi 22/08/2011)" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 focus:outline-none transition-all font-medium">
+                    <input type="text" id="tglInput" maxlength="10" placeholder="Contoh: 22082011" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 focus:outline-none transition-all font-medium">
                 </div>
                 <button onclick="validasiAwal()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition duration-300 shadow-xl shadow-blue-600/20 cursor-pointer active:scale-95">Lihat Hasil Kelulusan</button>
             </div>
@@ -92,7 +72,6 @@
         </div>
 
         <div id="wrapperHasil" class="hidden flex flex-col items-center gap-6 w-full max-w-3xl">
-            
             <div id="resultCard" class="w-full bg-white text-slate-900 p-8 md:p-12 rounded-[2rem] shadow-2xl border border-blue-50">
                 <div class="flex justify-between items-start border-b-2 border-slate-900 pb-6 mb-8 gap-4">
                     <div class="text-left">
@@ -102,12 +81,11 @@
                     </div>
                     <div class="flex gap-3">
                         <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w200" alt="Logo" class="logo-img-surat">
-                        <img src="https://images.wikimedia.org/math/8/0/5/8051770b02927958e5d6d8c0bdf05a96.png" alt="Logo" class="logo-img-surat">
+                        <img src="https://cdn.jsdelivr.net/gh/ezbukan/assets/tutwuri.png" alt="Logo" class="logo-img-surat">
                     </div>
                 </div>
-
                 <p class="text-sm leading-relaxed mb-8">Kepala SMP Negeri 2 Koto Gasib menerangkan dengan sebenarnya, berdasarkan hasil keputusan Rapat Dewan Guru pada tanggal 02 Juni 2026, <span id="outNarasiSapaan" class="font-semibold">siswa</span> yang tersebut di bawah ini:</p>
-
+                
                 <table class="w-full mb-10 text-[15px]">
                     <tr><td class="py-3 font-semibold text-slate-500 w-48 uppercase tracking-wider text-xs">Nama Peserta</td><td class="py-3 px-2">:</td><td class="py-3 font-bold text-lg text-blue-900 uppercase" id="outNama">-</td></tr>
                     <tr><td class="py-3 font-semibold text-slate-500 uppercase tracking-wider text-xs">Jenis Kelamin</td><td class="py-3 px-2">:</td><td class="py-3 font-medium" id="outJK">-</td></tr>
@@ -124,7 +102,7 @@
                             <span class="text-[10px] font-bold text-slate-300 uppercase leading-loose tracking-widest" id="placeholderFoto">Pas Foto<br>3 x 4</span>
                         </div>
                     </div>
-                    <div class="text-right text-sm">
+                    <div class="text-right text-[11px]">
                         <p class="mb-1 text-slate-600">Koto Gasib, 02 Juni 2026</p>
                         <p class="font-bold text-blue-900">Kepala SMP Negeri 2 Koto Gasib,</p>
                         <div class="my-3 flex justify-end">
@@ -135,15 +113,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="w-full flex flex-wrap justify-center gap-4 mb-10">
                 <button onclick="kembaliCek()" class="px-8 py-3.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-2xl transition font-bold text-xs uppercase tracking-widest shadow-sm">Kembali</button>
-                <button onclick="unduhGambar()" class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition text-xs uppercase tracking-widest shadow-lg shadow-blue-200 flex items-center gap-2">
-                    📥 Unduh Gambar (JPG)
-                </button>
+                <button onclick="unduhGambar()" class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition text-xs uppercase tracking-widest shadow-lg shadow-blue-200 flex items-center gap-2"> 📥 Unduh Gambar (JPG) </button>
             </div>
         </div>
-
     </main>
 
     <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-medium tracking-widest">
@@ -151,18 +125,13 @@
     </footer>
 
     <script>
-        // LOGIKA AUTOMATIC SLASH UNTUK INPUT TANGGAL LAHIR
         document.getElementById('tglInput').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 2 && value.length <= 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2);
-            } else if (value.length > 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
-            }
+            if (value.length > 2 && value.length <= 4) { value = value.slice(0, 2) + '/' + value.slice(2); } 
+            else if (value.length > 4) { value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8); }
             e.target.value = value;
         });
 
-        // DATABASE SISWA
         const dataSiswa = {
             "0111552477": { nama: "AHMAD HANIF RAMADHAN", jk: "Laki-laki", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS", fotoId: "1oTmaXYQg9c_kwo57N8QoNLSBHX7UfFdT" },
             "0112086831": { nama: "AHMAD VARDHAN ANSORI", jk: "Laki-laki", tgl: "17/01/2011", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", status: "LULUS", fotoId: "1YK8tPvlF4TUK9-bpnO-xUgaJgXfAehu1" },
@@ -177,7 +146,7 @@
             "0117173055": { nama: "FILZA FARZANA", jk: "Perempuan", tgl: "11/05/2011", ttl: "Siak, 11 Mei 2011", nilai: "88.34", status: "LULUS", fotoId: "1qKnrHt-sQH9l9Fk14JqFzzGGKXwXrA4i" },
             "0117486691": { nama: "LATHIF ARYANSAH", jk: "Laki-laki", tgl: "06/02/2011", ttl: "Siak, 6 Februari 2011", nilai: "83.03", status: "LULUS", fotoId: "1SDh6v3UBO3lPV0nTRKyWk28hrc_AV0s2" },
             "0111109622": { nama: "LILA AMELIA HARAHAP", jk: "Perempuan", tgl: "12/05/2011", ttl: "Pekanbaru, 12 Mei 2011", nilai: "86.01", status: "LULUS", fotoId: "1imJXbMyE5IiZbZkIRsj7PT6swO6Hcs18" },
-            "0102231878": { nama: "MALAKHIAN RUBY AL-BASRI", jk: "Laki-laki", tgl: "08/10/2010", ttl: "Bali, 8 Oktober 2010", nilai: "84.03", status: "LULUS", fotoId: "1X1MSXuEaHdPUYuOM1NEfMO6OpWEqaBx1" },
+            "0102231878": { nama: "MALAKHIAN RUBY AL-BASRI", jk: "Laki-laki", tgl: "08/10/2010", ttl: "Bali, 8 Oktober 2010", nilai: "84.03", status: "LULUS", fotoId: "1X1MSXuEaHdPUYuOM1NEfMO6OpWeqaBx1" },
             "0106025956": { nama: "NAJLA KAYYASAH", jk: "Perempuan", tgl: "09/12/2010", ttl: "Kerinci, 9 Desember 2010", nilai: "84.50", status: "LULUS", fotoId: "1NRxI71jiptVRp2OByjJEzZ0Ns5MbMPUb" },
             "0102873286": { nama: "RAFA ADITYA NUGROHO", jk: "Laki-laki", tgl: "31/07/2010", ttl: "Siak, 31 Juli 2010", nilai: "83.70", status: "LULUS", fotoId: "18NQahdnKq3jTLlSxfdLXPob9JW3E3BT9" },
             "0101493682": { nama: "REVIA NUR ARDIYANTI", jk: "Perempuan", tgl: "24/06/2010", ttl: "Siak, 24 Juni 2010", nilai: "89.60", status: "LULUS", fotoId: "1FV2xEUpUVRXstfD1_IRzxF0TOhzm6tJ1" },
@@ -197,23 +166,17 @@
         };
 
         let tempNisn = "";
-
         function validasiAwal() {
             const nisn = document.getElementById('nisnInput').value.trim();
             const tgl = document.getElementById('tglInput').value.trim();
             const errorBox = document.getElementById('errorBox');
             errorBox.classList.add('hidden');
-
-            if (dataSiswa[nisn] && dataSiswa[nisn].tgl === tgl) {
-                tempNisn = nisn;
-                document.getElementById('readyModal').classList.remove('hidden');
-            } else {
-                errorBox.classList.remove('hidden');
-            }
+            if (dataSiswa[nisn] && dataSiswa[nisn].tgl === tgl) { tempNisn = nisn; document.getElementById('readyModal').classList.remove('hidden'); }
+            else { errorBox.classList.remove('hidden'); }
         }
-
+        
         function tutupModal() { document.getElementById('readyModal').classList.add('hidden'); }
-
+        
         function bukaHasil() {
             const s = dataSiswa[tempNisn];
             document.getElementById('outNama').innerText = s.nama;
@@ -221,48 +184,34 @@
             document.getElementById('outTTL').innerText = s.ttl;
             document.getElementById('outNISN').innerText = tempNisn;
             document.getElementById('outNilai').innerText = s.nilai;
-            
             document.getElementById('outNarasiSapaan').innerText = (s.jk === "Perempuan") ? "siswi" : "siswa";
             
             const badge = document.getElementById('outStatus');
             badge.innerText = s.status;
             badge.className = "inline-block font-black px-6 py-1.5 rounded-lg text-md tracking-[0.2em] uppercase bg-blue-50 text-blue-700 border border-blue-200";
-
+            
             const foto = document.getElementById('fotoSiswa');
             const placeholder = document.getElementById('placeholderFoto');
             
-            if (s.status === "LULUS") {
-                // Trik tangguh bypass gambar menggunakan folder Drive kls 9 Anda
-                foto.src = `https://ucarecdn.com/https://drive.google.com/uc?export=download&id=${tempNisn}/-/preview/`;
-                
-                foto.onerror = function() {
-                    this.src = `https://drive.google.com/uc?export=download&id=${tempNisn}`;
-                    this.onerror = null;
-                };
-                
-                foto.style.display = 'block';
-                placeholder.style.display = 'none';
+            // FIX LOGIKAFOTO: Memanggil s.fotoId yang bener, bukan tempNisn!
+            if (s.status === "LULUS" && s.fotoId) {
+                foto.src = `https://drive.google.com/thumbnail?id=${s.fotoId}&sz=w400`;
+                foto.onload = function() { foto.style.display = 'block'; placeholder.style.display = 'none'; };
+                foto.onerror = function() { this.src = `https://drive.google.com/uc?export=download&id=${s.fotoId}`; foto.style.display = 'block'; placeholder.style.display = 'none'; };
             } else {
                 foto.style.display = 'none';
                 placeholder.style.display = 'block';
             }
-
             document.getElementById('readyModal').classList.add('hidden');
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('wrapperHasil').classList.remove('hidden');
         }
-
-        function kembaliCek() {
-            document.getElementById('loginForm').classList.remove('hidden');
-            document.getElementById('wrapperHasil').classList.add('hidden');
-            document.getElementById('nisnInput').value = "";
-            document.getElementById('tglInput').value = "";
-        }
-
+        
+        function kembaliCek() { document.getElementById('loginForm').classList.remove('hidden'); document.getElementById('wrapperHasil').classList.add('hidden'); }
+        
         function unduhGambar() {
             const kartu = document.getElementById('resultCard');
             const namaSiswa = document.getElementById('outNama').innerText;
-            
             html2canvas(kartu, { scale: 2, useCORS: true, allowTaint: false }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = `Surat_Kelulusan_${namaSiswa}.jpg`;
