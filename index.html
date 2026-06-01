@@ -268,14 +268,20 @@
 
             const foto = document.getElementById('fotoSiswa');
             const placeholder = document.getElementById('placeholderFoto');
+            // Sistem langsung membaca file gambar PNG berdasarkan NISN siswa
+            foto.src = `${tempNisn}.png`; 
 
-            if (s.fotoId) {
-                foto.src = `https://drive.google.com/thumbnail?id=${s.fotoId}&sz=w400`;
-                foto.onload = function() {
-                    foto.style.display = 'block';
-                    placeholder.style.display = 'none';
-                };
-            }
+            foto.onload = function() {
+              foto.style.display = 'block';
+              placeholder.style.display = 'none';
+            };
+            
+            foto.onerror = function() {
+              // Jika ada siswa yang belum punya foto, kotak foto disembunyikan agar rapi
+              foto.style.display = 'none';
+              placeholder.style.display = 'block';
+            };
+         }
 
             tutupModal();
             document.getElementById('loginForm').classList.add('hidden');
