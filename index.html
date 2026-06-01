@@ -207,10 +207,15 @@
             const foto = document.getElementById('fotoSiswa');
             const placeholder = document.getElementById('placeholderFoto');
             
+            // FIX LOGIKA FOTO: Pakai jalur cors-proxy bypass beneran agar muncul serentak
             if (s.fotoId) {
-                foto.src = `https://drive.google.com/thumbnail?id=${s.fotoId}&sz=w400`;
+                foto.src = `https://corsproxy.io/?` + encodeURIComponent(`https://drive.google.com/uc?export=view&id=${s.fotoId}`);
                 foto.onload = function() { foto.style.display = 'block'; placeholder.style.display = 'none'; };
-                foto.onerror = function() { this.src = `https://drive.google.com/uc?export=download&id=${s.fotoId}`; foto.style.display = 'block'; placeholder.style.display = 'none'; };
+                foto.onerror = function() { 
+                    this.src = `https://corsproxy.io/?` + encodeURIComponent(`https://drive.google.com/thumbnail?id=${s.fotoId}&sz=w400`);
+                    foto.style.display = 'block'; 
+                    placeholder.style.display = 'none'; 
+                };
             }
             tutupModal();
             document.getElementById('loginForm').classList.add('hidden');
