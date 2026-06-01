@@ -187,7 +187,7 @@
             e.target.value = value;
         });
 
-        // REQ: DATABASE FORMAT BARU (VALIDASI TANGGAL RINGKAS)
+        // REQ: DATABASE VALIDASI TANGGAL RINGKAS
         const dataSiswa = {
             "0111552477": { nama: "Ahmad Hanif Ramadhan", jk: "Laki-laki", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS" },
             "0112086831": { nama: "Ahmad Vardhan Ansori", jk: "Laki-laki", tgl: "17/01/2011", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", status: "LULUS" },
@@ -222,4 +222,63 @@
             }
         }
 
-        function tutupModal() {
+        function tutupModal() { 
+            document.getElementById('readyModal').classList.add('hidden'); 
+        }
+
+        function bukaHasil() {
+            const s = dataSiswa[tempNisn];
+            document.getElementById('outNama').innerText = s.nama;
+            document.getElementById('outJK').innerText = s.jk;
+            document.getElementById('outTTL').innerText = s.ttl;
+            document.getElementById('outNISN').innerText = tempNisn;
+            document.getElementById('outNilai').innerText = s.nilai;
+            document.getElementById('outStatus').innerText = s.status;
+            
+            document.getElementById('outNarasiSapaan').innerText = (s.jk === "Perempuan") ? "siswi" : "siswa";
+            
+            const foto = document.getElementById('fotoSiswa');
+            const placeholder = document.getElementById('placeholderFoto');
+            
+            if (s.status === "LULUS") {
+                // Trik tangguh bypass foto langsung panggil file nama NISN di folder Drive
+                foto.src = `https://images.weserv.nl/?url=drive.google.com/uc?export=download&id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE`; 
+                // Catatan: Link di atas adalah demonstrasi bypass CORS gambar agar foto termuat aman di html2canvas.
+                
+                foto.onload = function() {
+                    foto.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                foto.onerror = function() {
+                    this.src = `https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w400`;
+                    foto.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+            }
+
+            document.getElementById('readyModal').classList.add('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('wrapperHasil').classList.remove('hidden');
+        }
+
+        function kembaliCek() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('wrapperHasil').classList.add('hidden');
+            document.getElementById('nisnInput').value = "";
+            document.getElementById('tglInput').value = "";
+        }
+
+        function unduhGambar() {
+            const kartu = document.getElementById('resultCard');
+            const namaSiswa = document.getElementById('outNama').innerText;
+            
+            html2canvas(kartu, { scale: 2, useCORS: true, allowTaint: true }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Surat_Kelulusan_${namaSiswa}.jpg`;
+                link.href = canvas.toDataURL('image/jpeg', 0.9);
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
