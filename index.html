@@ -17,7 +17,7 @@
 
         .font-elegant { font-family: 'Playfair Display', serif; }
 
-        /* REQ: ANIMASI FLOATING BLOBS BIRU YANG CANTIK & KALEM */
+        /* REQ: ANIMASI FLOATING BLOBS PUTIH YANG CANTIK & KALEM */
         .blobs-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -47,7 +47,7 @@
             100% { transform: translate(-40px, 80px) scale(0.95); }
         }
 
-        /* REQ: NUANSA BIRU KUAT UNTUK FORM LOGIN */
+        /* REQ: NUANSA BIRU LEMBUT UNTUK FORM LOGIN */
         .glass-login {
             background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(20px);
@@ -189,7 +189,7 @@
 
         // FIX TOTAL: DATABASE LENGKAP 30 SISWA DENGAN FOTO ID MASING-MASING ANAK
         const dataSiswa = {
-             "0111552477": { nama: "AHMAD HANIF RAMADHAN", jk: "Laki-laki", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS", fotoId: "1oTmaXYQg9c_kwo57N8QoNLSBHX7UfFdT" },
+            "0111552477": { nama: "AHMAD HANIF RAMADHAN", jk: "Laki-laki", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS", fotoId: "1oTmaXYQg9c_kwo57N8QoNLSBHX7UfFdT" },
             "0112086831": { nama: "AHMAD VARDHAN ANSORI", jk: "Laki-laki", tgl: "17/01/2011", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", status: "LULUS", fotoId: "1YK8tPvlF4TUK9-bpnO-xUgaJgXfAehu1" },
             "0117382881": { nama: "AKBAR MAULANA", jk: "Laki-laki", tgl: "22/04/2011", ttl: "Siak, 22 April 2011", nilai: "88.25", status: "LULUS", fotoId: "1zO5fXMv2XiXWhZ2MUa3_vHaLEAK64uvD" },
             "0105438523": { nama: "ALEX ZIDAN PANGESTU", jk: "Laki-laki", tgl: "11/05/2010", ttl: "Siak, 11 Mei 2010", nilai: "83.35", status: "LULUS", fotoId: "1g9uq7eSF3tZSx8R_PkStA54Wu6lefFGh" },
@@ -220,8 +220,7 @@
             "0103991976": { nama: "MANN AMAR FARHAN ATHIF", jk: "Laki-laki", tgl: "08/12/2010", ttl: "Pekanbaru, 8 Desember 2010", nilai: "83.26", status: "LULUS", fotoId: "1FrLZ1Jmvt1NjNBSbat86T56-L3ONS8dA" },
             "0102729615": { nama: "WAHYU PUTRA RAHMADANI", jk: "Laki-laki", tgl: "03/09/2010", ttl: "Siak, 3 September 2010", nilai: "82.44", status: "LULUS", fotoId: "1Kbeb8GgqrUORD-4gXso9ujgYPxz_wBkF" }
         };
-
-
+        
         let tempNisn = "";
 
         function validasiAwal() {
