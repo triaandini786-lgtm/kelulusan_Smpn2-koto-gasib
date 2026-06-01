@@ -235,7 +235,6 @@
             }, 1000);
         }
 
-        // FUNGSI ANIMASI CONFETTI SELESAI HITUNG MUNDUR
         function sebarConfetti() {
             let durasi = 3 * 1000;
             let selesai = Date.now() + durasi;
@@ -282,7 +281,6 @@
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('wrapperHasil').classList.remove('hidden');
             
-            // Trigger ledakan confetti begitu hasil dibuka
             sebarConfetti();
         }
 
