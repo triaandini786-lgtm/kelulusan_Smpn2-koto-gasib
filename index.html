@@ -60,9 +60,7 @@
     <div id="loginForm" class="fade-in bg-white border border-blue-50 p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-blue-200/50 w-full max-w-md">
       <div class="text-center mb-8">
         <div class="mx-auto w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 rotate-3">
-          <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
+          <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
         </div>
         <h2 class="text-2xl font-bold text-slate-900">Halo, Selamat Datang</h2>
         <p class="text-sm text-slate-500 mt-2">Silakan masukkan data diri Anda dengan benar.</p>
@@ -148,36 +146,30 @@
           Simpan Gambar (JPG)
         </button>
         <button onclick="kembaliCek()" class="px-8 py-4 bg-white border border-slate-200 text-slate-600 rounded-2xl font-bold text-sm uppercase hover:bg-slate-50 transition cursor-pointer">
-          Kembali
+          Cek NISN Lain
         </button>
       </div>
     </div>
 
   </main>
 
-  <footer class="w-full py-6 text-center text-xs font-bold text-slate-400 border-t border-slate-100 bg-white/50">
+  <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-bold tracking-widest uppercase">
     © 2026 SMP NEGERI 2 KOTO GASIB
   </footer>
 
   <script>
     // AUTOMATISASI FORMAT TANGGAL LAHIR (DD/MM/YYYY)
-    document.getElementById('tglInput').addEventListener('input', function(e) {
-      let v = this.value.replace(/\D/g, '');
-      if (v.length > 8) v = v.substring(0, 8);
-      let out = "";
-      if (v.length > 0) {
-        out += v.substring(0, 2);
-        if (v.length > 2) {
-          out += '/' + v.substring(2, 4);
-          if (v.length > 4) {
-            out += '/' + v.substring(4, 8);
-          }
-        }
+    document.getElementById('tglInput').addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 2 && value.length <= 4) {
+        value = value.slice(0, 2) + '/' + value.slice(2);
+      } else if (value.length > 4) {
+        value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
       }
-      this.value = out;
+      e.target.value = value;
     });
 
-    // DATABASE SISWA KOTO GASIB (SUDAH DIPERBAIKI)
+    // DATABASE SISWA KOTO GASIB
     const dataSiswa = {
       "0111552477": { nama: "AHMAD HANIF RAMADHAN", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21" },
       "0112086831": { nama: "AHMAD VARDHAN ANSORI", tgl: "17/01/2011", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28" },
@@ -213,32 +205,41 @@
 
     let tempNisn = "";
 
+    document.getElementById('tglInput').addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 2 && value.length <= 4) {
+        value = value.slice(0, 2) + '/' + value.slice(2);
+      } else if (value.length > 4) {
+        value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+      }
+      e.target.value = value;
+    });
+
     function validasiAwal() {
       const nisn = document.getElementById('nisnInput').value.trim();
       const tgl = document.getElementById('tglInput').value.trim();
-      const err = document.getElementById('errorBox');
+      const errorBox = document.getElementById('errorBox');
+      errorBox.classList.add('hidden');
       
       if (dataSiswa[nisn] && dataSiswa[nisn].tgl === tgl) {
         tempNisn = nisn;
-        err.classList.add('hidden');
         document.getElementById('readyModal').classList.remove('hidden');
       } else {
-        err.classList.remove('hidden');
+        errorBox.classList.remove('hidden');
       }
     }
 
     function tutupModal() {
       document.getElementById('readyModal').classList.add('hidden');
+      document.getElementById('modalNormalState').classList.remove('hidden');
+      document.getElementById('modalCountdownState').classList.add('hidden');
     }
 
     function mulaiHitungMundur() {
       document.getElementById('modalNormalState').classList.add('hidden');
       document.getElementById('modalCountdownState').classList.remove('hidden');
-      
       let count = 3;
       const numEl = document.getElementById('countdownNumber');
-      numEl.innerText = count;
-      
       const timer = setInterval(() => {
         count--;
         if (count > 0) {
@@ -248,6 +249,18 @@
           bukaHasil();
         }
       }, 1000);
+    }
+
+    function sebarConfetti() {
+      let durasi = 3 * 1000;
+      let selesai = Date.now() + durasi;
+      (function frame() {
+        confetti({particleCount: 5, angle: 60, spread: 55, origin: { x: 0, y: 0.8 } });
+        confetti({particleCount: 5, angle: 120, spread: 55, origin: { x: 1, y: 0.8 } });
+        if (Date.now() < selesai) {
+          requestAnimationFrame(frame);
+        }
+      }());
     }
 
     function bukaHasil() {
@@ -260,7 +273,7 @@
       const foto = document.getElementById('fotoSiswa');
       const placeholder = document.getElementById('placeholderFoto');
       
-      // Membaca file pas foto lokal .png berdasarkan NISN siswa secara dinamis
+      // Sistem langsung membaca file gambar PNG berdasarkan NISN siswa
       foto.src = `${tempNisn}.png`; 
       
       foto.onload = function() {
@@ -269,6 +282,7 @@
       };
       
       foto.onerror = function() {
+        // Jika ada siswa yang belum punya foto, kotak foto disembunyikan agar rapi
         foto.style.display = 'none';
         placeholder.style.display = 'block';
       };
@@ -286,35 +300,19 @@
       document.getElementById('tglInput').value = "";
     }
 
-    function sebarConfetti() {
-      const durasi = 3 * 1000;
-      const selesai = Date.now() + durasi;
-      (function frame() {
-        confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0, y: 0.8 } });
-        confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1, y: 0.8 } });
-        if (Date.now() < selesai) {
-          requestAnimationFrame(frame);
-        }
-      }());
-    }
-
+    // FUNGSI UNDUH GAMBAR AMAN & TERUJI
     function unduhGambar() {
       const kartu = document.getElementById('resultCard');
       const namaSiswa = document.getElementById('outNama').innerText;
       
       setTimeout(() => {
-        html2canvas(kartu, {
-          scale: 2,
-          useCORS: true,
-          allowTaint: false,
-          backgroundColor: "#ffffff"
-        }).then(canvas => {
+        html2canvas(kartu, {scale: 2, useCORS: true, allowTaint: false, backgroundColor: "#ffffff" }).then(canvas => {
           const link = document.createElement('a');
           link.download = `Surat_Kelulusan_${namaSiswa}.jpg`;
           link.href = canvas.toDataURL('image/jpeg', 0.95);
           link.click();
         }).catch(err => {
-          alert("Gagal memproses gambar otomatis. Silakan screenshot layar Anda.");
+          alert("Gagal memproses gambar otomatis. Silakan ambil screenshot layar Anda.");
           console.error(err);
         });
       }, 500);
