@@ -6,6 +6,7 @@
     <title>KELULUSAN SMP NEGERI 2 KOTO GASIB</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap');
         body {
@@ -49,7 +50,7 @@
                 </div>
             </div>
             <div class="flex items-center gap-3 bg-white p-2 rounded-xl shadow-sm border border-blue-50">
-                <img src="https://images.weserv.nl/?url=drive.google.com/uc?export=download&id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE" alt="Logo Sekolah" class="logo-img" crossorigin="anonymous">
+                <img src="https://lh3.googleusercontent.com/d/1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE" alt="Logo Sekolah" class="logo-img" crossorigin="anonymous">
             </div>
         </div>
     </header>
@@ -105,7 +106,7 @@
                         <p class="text-sm text-slate-500 italic mt-1 uppercase tracking-widest">Tahun Pelajaran 2025/2026</p>
                     </div>
                     <div class="flex gap-2 bg-slate-50 p-2 rounded-xl items-center">
-                        <img src="https://images.weserv.nl/?url=drive.google.com/uc?export=download&id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE" class="h-10 w-auto" crossorigin="anonymous" alt="Logo Sekolah">
+                        <img src="https://lh3.googleusercontent.com/d/1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE" class="h-10 w-auto" crossorigin="anonymous" alt="Logo Sekolah">
                     </div>
                 </div>
 
@@ -130,7 +131,7 @@
                         <p class="mb-1 text-slate-600">Koto Gasib, 02 Juni 2026</p>
                         <p class="font-bold text-blue-900">Kepala SMP Negeri 2 Koto Gasib,</p>
                         <div class="my-3 flex justify-end">
-                            <img src="https://images.weserv.nl/?url=drive.google.com/uc?export=download&id=1fCT0SW8CuGyEPNiVc43pnD5r3luCU1DW" class="h-24 w-auto object-contain" crossorigin="anonymous" alt="TTD Kepsek">
+                            <img src="https://lh3.googleusercontent.com/d/1fCT0SW8CuGyEPNiVc43pnD5r3luCU1DW" class="h-24 w-auto object-contain" crossorigin="anonymous" alt="TTD Kepsek">
                         </div>
                         <p class="font-bold text-md underline">DESMA SUSANTI, S.Pd.</p>
                         <p class="text-xs text-slate-500 mt-1">NIP. 19751214 200801 2 006</p>
@@ -138,26 +139,21 @@
                 </div>
             </div>
 
-            <div class="w-full flex justify-center gap-4 mb-10">
-                <button onclick="kembaliCek()" class="px-8 py-3.5 bg-white border border-slate-200 text-slate-600 rounded-2xl font-bold text-xs uppercase cursor-pointer">Kembali</button>
-                <button onclick="unduhGambar()" class="px-8 py-3.5 bg-blue-600 text-white font-bold rounded-2xl transition text-xs uppercase shadow-lg cursor-pointer">📥 Unduh Gambar (JPG)</button>
+            <div class="w-full flex flex-col md:flex-row justify-center gap-4 mb-10">
+                <button onclick="unduhGambar()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition text-sm uppercase shadow-xl cursor-pointer flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Simpan Gambar (JPG)
+                </button>
+                <button onclick="kembaliCek()" class="px-8 py-4 bg-white border border-slate-200 text-slate-600 rounded-2xl font-bold text-sm uppercase cursor-pointer">Cek NISN Lain</button>
             </div>
         </div>
     </main>
 
-    <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-bold tracking-widest">© 2026 SMP NEGERI 2 KOTO GASIB</footer>
+    <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-bold tracking-widest uppercase">
+        © 2026 SMP NEGERI 2 KOTO GASIB
+    </footer>
 
     <script>
-        document.getElementById('tglInput').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 2 && value.length <= 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2);
-            } else if (value.length > 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
-            }
-            e.target.value = value;
-        });
-
         const dataSiswa = {
             "0111552477": { nama: "AHMAD HANIF RAMADHAN", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", fotoId: "1oTmaXYQg9c_kwo57N8QoNLSBHX7UfFdT" },
             "0112086831": { nama: "AHMAD VARDHAN ANSORI", tgl: "17/01/2011", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", fotoId: "1YK8tPvlF4TUK9-bpnO-xUgaJgXfAehu1" },
@@ -178,7 +174,7 @@
             "0101493682": { nama: "REVIA NUR ARDIYANTI", tgl: "24/06/2010", ttl: "Siak, 24 Juni 2010", nilai: "89.60", fotoId: "1FV2xEUpUVRXstfD1_IRzxF0TOhzm6tJ1" },
             "0105435661": { nama: "RIZKY ABI MAULANA", tgl: "01/06/2010", ttl: "Siak, 1 Juni 2010", nilai: "82.76", fotoId: "1GWEaeNFOdvY6spU6nmlLB5qbzkI-It24" },
             "0114810871": { nama: "SAFIA NUGIANATA", tgl: "27/01/2011", ttl: "Siak, 27 Januari 2011", nilai: "86.68", fotoId: "1UR7RQUW1cJfUxreZrQyVHh3SoDTftkKF" },
-            "0109214754": { nama: "SORAYA KHAIRUN NISA", tgl: "28/10/2010", ttl: "Siak, 28 Oktober 2010", values: "82.40", fotoId: "1aj9u3-Nm6Pf4paB7IvjbELPsW0nyiNZo" },
+            "0109214754": { nama: "SORAYA KHAIRUN NISA", tgl: "28/10/2010", ttl: "Siak, 28 Oktober 2010", nilai: "82.40", fotoId: "1aj9u3-Nm6Pf4paB7IvjbELPsW0nyiNZo" },
             "0091483140": { nama: "STRIA RAMADHAN", tgl: "29/08/2009", ttl: "Malang, 29 Agustus 2009", nilai: "81.90", fotoId: "1IdqdHOHNrTasDZNprakE4S3Byp0SUfqT" },
             "0108610894": { nama: "WAHYU PUTRA RAHMAT ABDULLAH", tgl: "10/04/2011", ttl: "Siak, 10 April 2011", nilai: "83.28", fotoId: "1rpq0APHPYXXK5ImJJkQjCv5P9M--M0wt" },
             "0107713656": { nama: "WIDIA PRATIWI", tgl: "29/09/2010", ttl: "Siak, 29 September 2010", nilai: "81.01", fotoId: "1CKUJ1kU9HdRyHMRJ5pH251QpR6ud1QEK" },
@@ -192,6 +188,16 @@
         };
 
         let tempNisn = "";
+
+        document.getElementById('tglInput').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2 && value.length <= 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            } else if (value.length > 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+            }
+            e.target.value = value;
+        });
 
         function validasiAwal() {
             const nisn = document.getElementById('nisnInput').value.trim();
@@ -229,24 +235,44 @@
             }, 1000);
         }
 
+        // FUNGSI ANIMASI CONFETTI SELESAI HITUNG MUNDUR
+        function sebarConfetti() {
+            let durasi = 3 * 1000;
+            let selesai = Date.now() + durasi;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.8 }
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.8 }
+                });
+
+                if (Date.now() < selesai) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+
         function bukaHasil() {
             const s = dataSiswa[tempNisn];
             document.getElementById('outNama').innerText = s.nama;
             document.getElementById('outTTL').innerText = s.ttl;
             document.getElementById('outNISN').innerText = tempNisn;
-            document.getElementById('outNilai').innerText = s.nilai || s.values;
+            document.getElementById('outNilai').innerText = s.nilai;
 
             const foto = document.getElementById('fotoSiswa');
             const placeholder = document.getElementById('placeholderFoto');
 
             if (s.fotoId) {
-                foto.src = `https://images.weserv.nl/?url=drive.google.com/uc?export=download&id=${s.fotoId}`;
+                foto.src = `https://drive.google.com/thumbnail?id=${s.fotoId}&sz=w400`;
                 foto.onload = function() {
-                    foto.style.display = 'block';
-                    placeholder.style.display = 'none';
-                };
-                foto.onerror = function() {
-                    this.src = `https://drive.google.com/thumbnail?id=${s.fotoId}&sz=w400`;
                     foto.style.display = 'block';
                     placeholder.style.display = 'none';
                 };
@@ -255,6 +281,9 @@
             tutupModal();
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('wrapperHasil').classList.remove('hidden');
+            
+            // Trigger ledakan confetti begitu hasil dibuka
+            sebarConfetti();
         }
 
         function kembaliCek() {
@@ -267,10 +296,16 @@
         function unduhGambar() {
             const kartu = document.getElementById('resultCard');
             const namaSiswa = document.getElementById('outNama').innerText;
-            html2canvas(kartu, { scale: 2, useCORS: true, allowTaint: false }).then(canvas => {
+            
+            html2canvas(kartu, { 
+                scale: 3, 
+                useCORS: true, 
+                allowTaint: false,
+                backgroundColor: "#ffffff"
+            }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = `SKHU_${namaSiswa}.jpg`;
-                link.href = canvas.toDataURL('image/jpeg', 0.9);
+                link.download = `Surat_Kelulusan_${namaSiswa}.jpg`;
+                link.href = canvas.toDataURL('image/jpeg', 0.95);
                 link.click();
             });
         }
