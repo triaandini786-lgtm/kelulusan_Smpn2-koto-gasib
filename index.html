@@ -14,13 +14,57 @@
       background-color: #f8fafc;
       margin: 0;
       overflow-x: hidden;
+      position: relative;
     }
     .font-elegant {
       font-family: 'Playfair Display', serif;
     }
-    .bg-custom {
-      background: radial-gradient(circle at top right, #dbeafe 0%, #ffffff 50%, #f1f5f9 100%);
+    
+    /* ANIMASI GELOMBANG LATAR BELAKANG */
+    .bg-animated-blobs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      overflow: hidden;
     }
+    .blob {
+      position: absolute;
+      background: radial-gradient(circle, rgba(147,197,253,0.4) 0%, rgba(219,234,254,0) 70%);
+      border-radius: 50%;
+      animation: floatAnimation 20s infinite alternate ease-in-out;
+    }
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      top: -10%;
+      right: -10%;
+      animation-duration: 25s;
+    }
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      bottom: -10%;
+      left: -10%;
+      background: radial-gradient(circle, rgba(191,219,254,0.4) 0%, rgba(239,246,255,0) 70%);
+      animation-duration: 20s;
+    }
+    .blob-3 {
+      width: 400px;
+      height: 400px;
+      top: 40%;
+      left: 25%;
+      background: radial-gradient(circle, rgba(165,180,252,0.25) 0%, rgba(238,242,255,0) 70%);
+      animation-duration: 18s;
+    }
+    @keyframes floatAnimation {
+      0% { transform: translateY(0) scale(1) rotate(0deg); }
+      100% { transform: translateY(50px) scale(1.1) rotate(180deg); }
+    }
+
     .fade-in {
       animation: fadeIn 0.8s ease-out;
     }
@@ -38,15 +82,21 @@
     }
   </style>
 </head>
-<body class="bg-custom min-h-screen flex flex-col text-slate-800">
+<body class="min-h-screen flex flex-col text-slate-800">
+
+  <div class="bg-animated-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
   <header class="w-full py-6 px-6 border-b border-blue-100 bg-white/70 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-center md:text-left">
         <h1 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">PENGUMUMAN KELULUSAN</h1>
         <div class="mt-1 flex flex-col">
-          <span class="text-blue-600 font-bold text-sm tracking-widest uppercase">SMP NEGERI 2 KOTO GASIB</span>
-          <span class="text-slate-500 font-semibold text-xs mt-1 italic">Tahun Pelajaran 2025/2026</span>
+          <span class="text-slate-600 font-semibold text-sm md:text-base tracking-wide mt-1">Siswa-siswi kelas 9 tahun pelajaran 2025/2026</span>
+          <span class="text-blue-600 font-bold text-sm tracking-widest uppercase mt-0.5">SMP NEGERI 2 KOTO GASIB</span>
         </div>
       </div>
       <div class="flex items-center gap-3 bg-white p-2 rounded-xl shadow-sm border border-blue-50">
@@ -57,7 +107,7 @@
 
   <main class="flex-grow flex items-center justify-center px-4 py-10">
     
-    <div id="loginForm" class="fade-in bg-white border border-blue-50 p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-blue-200/50 w-full max-w-md">
+    <div id="loginForm" class="fade-in bg-white/90 backdrop-blur-md border border-blue-50 p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-blue-200/50 w-full max-w-md">
       <div class="text-center mb-8">
         <div class="mx-auto w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 rotate-3">
           <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -154,7 +204,7 @@
   </main>
 
   <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-bold tracking-widest uppercase">
-    © 2026 SMP NEGERI 2 KOTO GASIB
+    © 2026 SMP NEGERI 2 KOTO GASIB. SELURUH HAK CIPTA DILINDUNGI.
   </footer>
 
   <script>
@@ -205,16 +255,6 @@
 
     let tempNisn = "";
 
-    document.getElementById('tglInput').addEventListener('input', function (e) {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length > 2 && value.length <= 4) {
-        value = value.slice(0, 2) + '/' + value.slice(2);
-      } else if (value.length > 4) {
-        value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
-      }
-      e.target.value = value;
-    });
-
     function validasiAwal() {
       const nisn = document.getElementById('nisnInput').value.trim();
       const tgl = document.getElementById('tglInput').value.trim();
@@ -240,6 +280,8 @@
       document.getElementById('modalCountdownState').classList.remove('hidden');
       let count = 3;
       const numEl = document.getElementById('countdownNumber');
+      numEl.innerText = count;
+      
       const timer = setInterval(() => {
         count--;
         if (count > 0) {
@@ -273,7 +315,6 @@
       const foto = document.getElementById('fotoSiswa');
       const placeholder = document.getElementById('placeholderFoto');
       
-      // Sistem langsung membaca file gambar PNG berdasarkan NISN siswa
       foto.src = `${tempNisn}.png`; 
       
       foto.onload = function() {
@@ -282,7 +323,6 @@
       };
       
       foto.onerror = function() {
-        // Jika ada siswa yang belum punya foto, kotak foto disembunyikan agar rapi
         foto.style.display = 'none';
         placeholder.style.display = 'block';
       };
@@ -300,7 +340,6 @@
       document.getElementById('tglInput').value = "";
     }
 
-    // FUNGSI UNDUH GAMBAR AMAN & TERUJI
     function unduhGambar() {
       const kartu = document.getElementById('resultCard');
       const namaSiswa = document.getElementById('outNama').innerText;
