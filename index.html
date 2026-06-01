@@ -70,7 +70,7 @@
                     <p class="text-sm text-slate-500 mb-8 leading-relaxed">Persiapkan dirimu untuk melihat hasil perjuanganmu selama 3 tahun di SMPN 2 Koto Gasib.</p>
                     <div class="flex flex-col gap-3">
                         <button onclick="mulaiHitungMundur()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition cursor-pointer">Ya, Saya Siap!</button>
-                        <button onclick="tutupModal()" class="w-full text-slate-400 font-semibold py-2 text-xs uppercase tracking-widest cursor-pointer">Nanti Saja</button>
+                        <button onclick="tutupModal()" class="w-full text-slate-400 font-semibold py-2 text-xs uppercase tracking-widest cursor-pointer">Kembali</button>
                     </div>
                 </div>
                 <div id="modalCountdownState" class="hidden py-8">
@@ -148,7 +148,7 @@
             "0103532915": { nama: "ANISA NURHIDAYAH", tgl: "26/10/2010", ttl: "Pelalawan, 26 Oktober 2010", nilai: "84.90", status: "LULUS", fotoId: "15lkBS30uwLhsZ8uGFNbAo3s0YGK2kLmZ" },
             "0105142048": { nama: "ARDIYANSAH PUTRA PRATAMA", tgl: "20/07/2010", ttl: "Siak, 20 Juli 2010", nilai: "84.10", status: "LULUS", fotoId: "1_TXgL4LRZiFFkIJx2u02LoWVCZFPC7-o" },
             "0107949128": { nama: "ASY SYIFA SYAFITRI", tgl: "19/09/2010", ttl: "Siak, 19 September 2010", nilai: "86.98", status: "LULUS", fotoId: "1gJ9twrs4eEy_1hPClaW_831sHn5pTu-0" },
-            "0113053584": { nama: "CAHAYA LESTARI", tgl: "14/03/2011", ttl: "Aek Nabara, 14 Maret 2011", nilai: "86.53", status: "LULUS", fotoId: "1JvUUEnNkfHf-wtfG8VqW7M6k1FDKYXH3 text-navy" },
+            "0113053584": { nama: "CAHAYA LESTARI", tgl: "14/03/2011", ttl: "Aek Nabara, 14 Maret 2011", nilai: "86.53", status: "LULUS", fotoId: "1JvUUEnNkfHf-wtfG8VqW7M6k1FDKYXH3" },
             "0101742208": { nama: "DATIN MARSYA FAATHIHAH SYARIF", tgl: "15/12/2010", ttl: "Pekanbaru, 15 Desember 2010", nilai: "85.29", status: "LULUS", fotoId: "1PmcBjZZT5f4KLKoEBZ74cjzV0u50eZ1T" },
             "0108381664": { nama: "EGA SETYAWAN", tgl: "11/12/2010", ttl: "Siak, 11 Desember 2010", nilai: "83.48", status: "LULUS", fotoId: "1_NuhzFsSRdS4hQN0NguhioFFkvZEIVpz" },
             "0117173055": { nama: "FILZA FARZANA", tgl: "11/05/2011", ttl: "Siak, 11 Mei 2011", nilai: "88.34", status: "LULUS", fotoId: "1qKnrHt-sQH9l9Fk14JqFzzGGKXwXrA4i" },
@@ -169,7 +169,7 @@
             "0107333950": { nama: "MUHAMMAD YUSUF LATIFA", tgl: "25/06/2010", ttl: "Siak, 25 Juni 2010", nilai: "82.61", status: "LULUS", fotoId: "1VYEFLF9NqEqUx1EVsKTUDKO9p6pdMjLd" },
             "0118134460": { nama: "FAJRI WIRANANTA", tgl: "08/06/2011", ttl: "Siak, 8 Juni 2011", nilai: "81.80", status: "LULUS", fotoId: "1NwnnN3Ob1wmRtsFtB3hol-032DAlJ92R" },
             "0103395139": { nama: "AHMAD AZZAM", tgl: "31/08/2010", ttl: "Siak, 31 Agustus 2010", nilai: "83.05", status: "LULUS", fotoId: "1n_wOffN4UyO-lkip-yH8MKc5qHK8RIr1" },
-            "0103991976": { nama: "MANN AMAR FARHAN ATHIF", tgl: "08/12/2010", ttl: "Pekanbaru, 8... Desember 2010", nilai: "83.26", status: "LULUS", fotoId: "1FrLZ1Jmvt1NjNBSbat86T56-L3ONS8dA" },
+            "0103991976": { nama: "MANN AMAR FARHAN ATHIF", tgl: "08/12/2010", ttl: "Pekanbaru, 08 Desember 2010", nilai: "83.26", status: "LULUS", fotoId: "1FrLZ1Jmvt1NjNBSbat86T56-L3ONS8dA" },
             "0102729615": { nama: "WAHYU PUTRA RAHMADANI", tgl: "03/09/2010", ttl: "Siak, 3 September 2010", nilai: "82.44", status: "LULUS", fotoId: "1Kbeb8GgqrUORD-4gXso9ujgYPxz_wBkF" }
         };
 
@@ -222,7 +222,6 @@
             const foto = document.getElementById('fotoSiswa');
             const placeholder = document.getElementById('placeholderFoto');
             
-            // BYPASS FIX: Memaksa gambar menggunakan Weserv Proxy agar terbaca html2canvas tanpa proteksi CORS
             if (s.fotoId) {
                 foto.src = `https://images.weserv.nl/?url=drive.google.com/uc?export=download&id=${s.fotoId}`;
                 foto.onload = function() { foto.style.display = 'block'; placeholder.style.display = 'none'; };
