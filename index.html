@@ -3,222 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PENGUMUMAN KELULUSAN SMP NEGERI 2 KOTO GASIB</title>
+    <title>KELULUSAN SMP NEGERI 2 KOTO GASIB</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap');
-        .font-serif-elegant { font-family: 'Cinzel', serif; }
-        .font-sans-modern { font-family: 'Inter', sans-serif; }
-        @media print {
-            body { background: white !important; color: black !important; }
-            .no-print { display: none !important; }
-            .print-card { border: none !important; box-shadow: none !important; background: white !important; padding: 0 !important; margin: 0 !important; width: 100% !important; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .font-elegant { font-family: 'Playfair Display', serif; }
+        .bg-custom { background: radial-gradient(circle at top right, #dbeafe 0%, #ffffff 50%, #f1f5f9 100%); }
+        .fade-in { animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* CSS KHUSUS UNTUK MENGHAPUS LATAR BELAKANG LOGO DAN MENYATUKANNYA */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .logo-img {
+            height: 3.5rem;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* Menghilangkan background putih pada logo otomatis */
+        }
+        .logo-img-surat {
+            height: 4rem;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 font-sans-modern min-h-screen text-slate-100 flex flex-col justify-between">
+<body class="bg-custom min-h-screen flex flex-col text-slate-800">
 
-    <header class="no-print w-full py-6 px-6 border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-md shadow-lg">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <header class="w-full py-6 px-6 border-b border-blue-100 bg-white/70 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-center md:text-left">
-                <h1 class="text-xl md:text-2xl font-bold font-serif-elegant tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200">
-                    PENGUMUMAN KELULUSAN
-                </h1>
-                <p class="text-lg md:text-xl font-semibold text-slate-200">SMP Negeri 2 Koto Gasib</p>
-                <p class="text-xs uppercase tracking-widest text-slate-400 font-medium">Tahun Pelajaran 2025/2026</p>
+                <h1 class="text-2xl md:text-3xl font-bold font-elegant text-blue-900 tracking-tight">PENGUMUMAN KELULUSAN</h1>
+                <p class="text-blue-600 font-medium tracking-wide uppercase text-xs mt-1">SMP Negeri 2 Koto Gasib • 2025/2026</p>
             </div>
-            <div class="flex items-center gap-3 bg-slate-800/40 p-2 rounded-xl border border-slate-700/30">
-                <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w100" alt="Logo 1" class="h-12 w-auto object-contain">
-                <img src="https://drive.google.com/thumbnail?id=1lKN-Eh-YCzlyALEhuqjYj4b4PQk-dGEU&sz=w100" alt="Logo 2" class="h-12 w-auto object-contain">
+            <div class="logo-container">
+                <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w200" alt="Logo Sekolah" class="logo-img">
+                <div class="h-8 w-[1px] bg-blue-200"></div>
+                <img src="https://drive.google.com/thumbnail?id=1lKN-Eh-YCzlyALEhuqjYj4b4PQk-dGEU&sz=w200" alt="Logo Tut Wuri" class="logo-img">
             </div>
         </div>
     </header>
 
-    <main class="flex-grow flex items-center justify-center px-4 py-8">
+    <main class="flex-grow flex items-center justify-center px-4 py-10">
         
-        <div id="loginForm" class="no-print bg-slate-900/90 border border-slate-700/60 backdrop-blur-lg p-6 md:p-8 rounded-2xl shadow-2xl w-full max-w-md">
-            <div class="text-center mb-6">
-                <div class="mx-auto w-14 h-14 bg-amber-500/10 border border-amber-500/30 rounded-full flex items-center justify-center mb-3">
-                    <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        <div id="loginForm" class="fade-in bg-white border border-blue-50 p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-blue-200/50 w-full max-w-md">
+            <div class="text-center mb-8">
+                <div class="mx-auto w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 rotate-3">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
                 </div>
-                <h2 class="text-lg font-semibold text-white">Portal Akses Kelulusan</h2>
-                <p class="text-xs text-slate-400 mt-1">Gunakan NISN & Tanggal Lahir Anda sesuai data raport</p>
+                <h2 class="text-2xl font-bold text-slate-900">Halo, Selamat Datang</h2>
+                <p class="text-sm text-slate-500 mt-2">Silakan masukkan data diri Anda dengan benar untuk melihat hasil akhir.</p>
             </div>
             
-            <div class="space-y-4">
+            <div class="space-y-5">
                 <div>
-                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Nomor Induk Siswa Nasional (NISN)</label>
-                    <input type="text" id="nisnInput" placeholder="Contoh: 0111552477" 
-                        class="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all text-sm font-medium">
+                    <label class="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-2 ml-1">NISN Siswa</label>
+                    <input type="text" id="nisnInput" placeholder="Contoh: 0111552477" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 focus:outline-none transition-all font-medium">
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Tanggal Lahir Panjang</label>
-                    <input type="text" id="tglInput" placeholder="Contoh: Siak, 22 Agustus 2011" 
-                        class="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all text-sm">
+                    <label class="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-2 ml-1">Tanggal Lahir</label>
+                    <input type="text" id="tglInput" placeholder="DD/MM/YYYY (Contoh: 22/08/2011)" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 focus:outline-none transition-all font-medium">
                 </div>
-                <button onclick="validasiAwal()" 
-                    class="w-full mt-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold py-2.5 rounded-xl transition duration-200 shadow-lg cursor-pointer text-sm">
-                    Periksa Kelulusan
-                </button>
+                <button onclick="validasiAwal()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition duration-300 shadow-xl shadow-blue-600/20 cursor-pointer active:scale-95">Lihat Hasil Kelulusan</button>
             </div>
-            <div id="errorBox" class="hidden mt-4 p-3 bg-rose-950/60 border border-rose-500/40 text-rose-300 rounded-xl text-center text-xs">
-                ⚠️ NISN atau Tanggal Lahir salah! Samakan besar kecil hurufnya (Contoh: Siak, S-nya besar).
-            </div>
+            <div id="errorBox" class="hidden mt-6 p-4 bg-red-50 border border-red-100 text-red-600 rounded-2xl text-center text-xs font-medium">❌ NISN atau Tanggal Lahir tidak terdaftar.</div>
         </div>
 
-        <div id="readyModal" class="no-print hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50">
-            <div class="bg-slate-900 border border-slate-700 p-6 md:p-8 rounded-2xl max-w-sm w-full text-center shadow-2xl">
-                <div class="text-5xl mb-4 animate-bounce">✉️</div>
-                <h3 class="text-xl font-bold text-white mb-2">Apakah kamu siap?</h3>
-                <p class="text-sm text-slate-400 mb-6">Amplop digital pengumuman hasil akhir kamu sudah siap untuk dibuka.</p>
-                <div class="flex flex-col gap-2">
-                    <button onclick="bukaHasil()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-xl transition cursor-pointer text-sm shadow-lg">
-                        Ya, Saya Siap!
-                    </button>
-                    <button onclick="tutupModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 py-2 rounded-xl transition cursor-pointer text-xs">
-                        Kembali
-                    </button>
+        <div id="readyModal" class="hidden fixed inset-0 bg-blue-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div class="bg-white p-8 md:p-10 rounded-[2.5rem] max-w-sm w-full text-center shadow-2xl">
+                <p class="text-5xl mb-4">✨</p>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3 font-elegant">Apakah kamu siap?</h3>
+                <p class="text-sm text-slate-500 mb-8 leading-relaxed">Persiapkan dirimu untuk melihat hasil perjuanganmu selama 3 tahun di SMPN 2 Koto Gasib.</p>
+                <div class="flex flex-col gap-3">
+                    <button onclick="bukaHasil()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition cursor-pointer">Ya, Saya Siap!</button>
+                    <button onclick="tutupModal()" class="w-full text-slate-400 font-semibold py-2 text-xs uppercase tracking-widest">Nanti Saja</button>
                 </div>
             </div>
         </div>
 
-        <div id="resultCard" class="hidden w-full max-w-3xl bg-white text-slate-900 p-6 md:p-10 rounded-xl shadow-2xl print-card border border-slate-200">
-            <div class="text-center border-b-2 border-slate-900 pb-4 mb-6 flex justify-between items-center gap-4">
-                <div class="text-left">
-                    <h2 class="text-xl font-bold tracking-tight">SURAT KETERANGAN HASIL KELULUSAN</h2>
-                    <p class="text-sm font-semibold">SMP NEGERI 2 KOTO GASIB</p>
-                    <p class="text-xs text-slate-500">Tahun Pelajaran 2025/2026</p>
-                </div>
-                <div class="flex gap-2">
-                    <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w100" alt="Logo" class="h-10 w-auto">
-                    <img src="https://drive.google.com/thumbnail?id=1lKN-Eh-YCzlyALEhuqjYj4b4PQk-dGEU&sz=w100" alt="Logo" class="h-10 w-auto">
-                </div>
-            </div>
-
-            <p class="text-sm mb-4">Berdasarkan hasil rapat pleno dewan guru mengenai evaluasi akhir siswa, dinyatakan bahwa:</p>
-
-            <table class="w-full mb-8 text-sm">
-                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium w-40">Nama Peserta</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-bold uppercase" id="outNama">-</td></tr>
-                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">Tempat, Tanggal Lahir</td><td class="py-2.5 px-2">:</td><td class="py-2.5" id="outTTL">-</td></tr>
-                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">NISN</td><td class="py-2.5 px-2">:</td><td class="py-2.5 tracking-wider" id="outNISN">-</td></tr>
-                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">Nilai Rata-rata</td><td class="py-2.5 px-2">:</td><td class="py-2.5 font-semibold text-blue-700" id="outNilai">-</td></tr>
-                <tr class="border-b border-slate-200"><td class="py-2.5 font-medium">Status Kelulusan</td><td class="py-2.5 px-2">:</td><td class="py-2.5"><span id="outStatus" class="inline-block font-extrabold px-3 py-1 rounded text-sm uppercase tracking-wider"></span></td></tr>
-            </table>
-
-            <div class="grid grid-cols-2 mt-12 items-end">
-                <div>
-                    <div class="w-24 h-32 border-2 border-dashed border-slate-400 bg-slate-50 flex items-center justify-center text-center p-2 rounded">
-                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Foto 3x4<br>(Akan dimasukkan nanti)</span>
+        <div id="wrapperHasil" class="hidden flex flex-col items-center gap-6 w-full max-w-3xl">
+            
+            <div id="resultCard" class="w-full bg-white text-slate-900 p-8 md:p-12 rounded-[2rem] shadow-2xl border border-blue-50">
+                <div class="flex justify-between items-start border-b-2 border-slate-900 pb-6 mb-8 gap-4">
+                    <div class="text-left">
+                        <h2 class="text-xl md:text-2xl font-bold tracking-tight font-elegant">SURAT KETERANGAN HASIL KELULUSAN</h2>
+                        <p class="text-md font-bold text-blue-800">SMP NEGERI 2 KOTO GASIB</p>
+                        <p class="text-sm text-slate-500 italic mt-1 uppercase tracking-widest">Tahun Pelajaran 2025/2026</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <img src="https://drive.google.com/thumbnail?id=1EKto_2_eBJxMvmqO1qJdlbH_URdQpqgE&sz=w200" alt="Logo" class="logo-img-surat">
+                        <img src="https://drive.google.com/thumbnail?id=1lKN-Eh-YCzlyALEhuqjYj4b4PQk-dGEU&sz=w200" alt="Logo" class="logo-img-surat">
                     </div>
                 </div>
 
-                <div class="text-right text-sm">
-                    <p class="mb-1">Koto Gasib, 02 Juni 2026</p>
-                    <p class="font-medium">Kepala SMP Negeri 2 Koto Gasib,</p>
-                    <div class="my-2 flex justify-end">
-                        <img src="https://drive.google.com/thumbnail?id=1fCT0SW8CuGyEPNiVc43pnD5r3luCU1DW&sz=w200" alt="TTD Kepsek" class="h-16 w-auto object-contain">
+                <p class="text-sm leading-relaxed mb-8">Kepala SMP Negeri 2 Koto Gasib menerangkan dengan sebenarnya, berdasarkan hasil keputusan Rapat Dewan Guru pada tanggal 02 Juni 2026, <span id="outNarasiSapaan" class="font-semibold">siswa</span> yang tersebut di bawah ini:</p>
+
+                <table class="w-full mb-10 text-[15px]">
+                    <tr><td class="py-3 font-semibold text-slate-500 w-48 uppercase tracking-wider text-xs">Nama Peserta</td><td class="py-3 px-2">:</td><td class="py-3 font-bold text-lg text-blue-900 uppercase" id="outNama">-</td></tr>
+                    <tr><td class="py-3 font-semibold text-slate-500 uppercase tracking-wider text-xs">Jenis Kelamin</td><td class="py-3 px-2">:</td><td class="py-3 font-medium" id="outJK">-</td></tr>
+                    <tr><td class="py-3 font-semibold text-slate-500 uppercase tracking-wider text-xs">Tempat, Tanggal Lahir</td><td class="py-3 px-2">:</td><td class="py-3 font-medium" id="outTTL">-</td></tr>
+                    <tr><td class="py-3 font-semibold text-slate-500 uppercase tracking-wider text-xs">NISN Siswa</td><td class="py-3 px-2">:</td><td class="py-3 font-medium" id="outNISN">-</td></tr>
+                    <tr><td class="py-3 font-semibold text-slate-500 uppercase tracking-wider text-xs">Nilai Rata-rata</td><td class="py-3 px-2">:</td><td class="py-3 font-bold text-blue-600" id="outNilai">-</td></tr>
+                    <tr><td class="py-3 font-semibold text-slate-500 uppercase tracking-wider text-xs">Status Kelulusan</td><td class="py-3 px-2">:</td><td class="py-3"><span id="outStatus" class="inline-block font-black px-6 py-1.5 rounded-lg text-md tracking-[0.2em] uppercase"></span></td></tr>
+                </table>
+
+                <div class="grid grid-cols-2 mt-12">
+                    <div>
+                        <div class="w-32 h-44 border-2 border-dashed border-slate-200 bg-slate-50 flex items-center justify-center text-center rounded-xl relative overflow-hidden">
+                            <img id="fotoSiswa" src="" alt="Pas Foto" class="absolute inset-0 w-full h-full object-cover rounded-xl" style="display:none;" crossorigin="anonymous">
+                            <span class="text-[10px] font-bold text-slate-300 uppercase leading-loose tracking-widest" id="placeholderFoto">Pas Foto<br>3 x 4</span>
+                        </div>
                     </div>
-                    <p class="font-bold underline decoration-slate-900">DESMA SUSANTI, S.Pd.</p>
-                    <p class="text-xs text-slate-600">NIP. 197512142008012006</p>
+                    <div class="text-right text-sm">
+                        <p class="mb-1 text-slate-600">Koto Gasib, 02 Juni 2026</p>
+                        <p class="font-bold text-blue-900">Kepala SMP Negeri 2 Koto Gasib,</p>
+                        <div class="my-3 flex justify-end">
+                            <img src="https://drive.google.com/thumbnail?id=1fCT0SW8CuGyEPNiVc43pnD5r3luCU1DW&sz=w200" alt="TTD" class="h-24 w-auto object-contain">
+                        </div>
+                        <p class="font-bold text-md underline decoration-blue-900">DESMA SUSANTI, S.Pd.</p>
+                        <p class="text-xs text-slate-500 font-medium mt-1">NIP. 19751214 200801 2 006</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="no-print mt-8 pt-4 border-t border-slate-200 flex justify-end gap-3">
-                <button onclick="kembaliCek()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition font-medium text-xs cursor-pointer">
-                    ⬅️ Periksa NISN Lain
-                </button>
-                <button onclick="window.print()" class="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl transition text-xs shadow cursor-pointer">
-                    🖨️ Cetak Surat Kelulusan
+            <div class="w-full flex flex-wrap justify-center gap-4 mb-10">
+                <button onclick="kembaliCek()" class="px-8 py-3.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-2xl transition font-bold text-xs uppercase tracking-widest shadow-sm">Kembali</button>
+                <button onclick="unduhGambar()" class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition text-xs uppercase tracking-widest shadow-lg shadow-blue-200 flex items-center gap-2">
+                    📥 Unduh Gambar (JPG)
                 </button>
             </div>
         </div>
 
     </main>
 
-    <footer class="no-print w-full bg-slate-950/80 border-t border-slate-800/60 text-slate-500 text-center py-4 text-xs tracking-wide">
-        &copy; 2026 SMP Negeri 2 Koto Gasib. Hak Cipta Dilindungi Undang-Undang.
+    <footer class="w-full bg-white/50 py-6 text-slate-400 text-center text-xs font-medium tracking-widest">
+        © 2026 SMP NEGERI 2 KOTO GASIB • OFFICIAL GRADUATION PORTAL
     </footer>
 
     <script>
-        // DATABASE SISWA (Diambil langsung dari file DATA NAMA KELAS 9.xlsx)
-        const databaseSiswa = {
-            "0111552477": { nama: "Ahmad Hanif Ramadhan", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS" },
-            "0112086831": { nama: "Ahmad Vardhan Ansori", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", status: "LULUS" },
-            "0117382881": { nama: "Akbar Maulana", ttl: "Siak, 22 April 2011", nilai: "88.25", status: "LULUS" },
-            "0105438523": { nama: "Alex Zidan Pangestu", ttl: "Siak, 11 Mei 2010", nilai: "83.35", status: "LULUS" },
-            "0103532915": { nama: "Anisa Nurhidayah", ttl: "Pelalawan, 26 Oktober 2010", nilai: "84.90", status: "LULUS" },
-            "0105142048": { nama: "Ardiyansah Putra Pratama", ttl: "Siak, 20 Juli 2010", nilai: "84.10", status: "LULUS" },
-            "0107949128": { nama: "Asy Syifa Syafitri", ttl: "Siak, 19 September 2010", nilai: "86.98", status: "LULUS" },
-            "0113053584": { nama: "Cahaya Lestari", ttl: "Aek Nabara, 14 Maret 2011", nilai: "86.53", status: "LULUS" },
-            "0101742208": { nama: "Datin Marsya Faathihah Syarif", ttl: "Pekanbaru, 15 Desember 2010", nilai: "85.29", status: "LULUS" },
-            "0108381664": { nama: "Ega Setyawan", ttl: "Siak, 11 Desember 2010", nilai: "83.48", status: "LULUS" },
-            "0117173055": { nama: "Filza Farzana", ttl: "Siak, 11 Mei 2011", nilai: "88.34", status: "LULUS" },
-            "0117486691": { nama: "Lathif Aryansah", ttl: "Siak, 6 Februari 2011", nilai: "83.03", status: "LULUS" },
-            "0111109622": { nama: "Lila Amelia Harahap", ttl: "Pekanbaru, 12 Mei 2011", nilai: "86.01", status: "LULUS" },
-            "0102231878": { nama: "Malakhian Ruby Al-Basri", ttl: "Bali, 8 Oktober 2010", nilai: "84.03", status: "LULUS" },
-            "0106025956": { nama: "Najla Kayyasah", ttl: "Kerinci, 9 Desember 2010", nilai: "84.50", status: "LULUS" }
+        // DATABASE SISWA DAN FOTO DARI DRIVE KLS 9
+        const driveFolderId = "1xkOAbb4shusuizgi_dNRaPwaf4MOkMp_";
+        
+        const dataSiswa = {
+            "0111552477": { nama: "Ahmad Hanif Ramadhan", jk: "Laki-laki", tgl: "22/08/2011", ttl: "Siak, 22 Agustus 2011", nilai: "85.21", status: "LULUS" },
+            "0112086831": { nama: "Ahmad Vardhan Ansori", jk: "Laki-laki", tgl: "17/01/2011", ttl: "Tanjung Jabung Barat, 17 Januari 2011", nilai: "82.28", status: "LULUS" },
+            "0117382881": { nama: "Akbar Maulana", jk: "Laki-laki", tgl: "22/04/2011", ttl: "Siak, 22 April 2011", nilai: "88.25", status: "LULUS" },
+            "0105438523": { nama: "Alex Zidan Pangestu", jk: "Laki-laki", tgl: "11/05/2010", ttl: "Siak, 11 Mei 2010", nilai: "83.35", status: "LULUS" },
+            "0103532915": { nama: "Anisa Nurhidayah", jk: "Perempuan", tgl: "26/10/2010", ttl: "Pelalawan, 26 Oktober 2010", nilai: "84.90", status: "LULUS" },
+            "0105142048": { nama: "Ardiyansah Putra Pratama", jk: "Laki-laki", tgl: "20/07/2010", ttl: "Siak, 20 Juli 2010", nilai: "84.10", status: "LULUS" },
+            "0107949128": { nama: "Asy Syifa Syafitri", jk: "Perempuan", tgl: "19/09/2010", ttl: "Siak, 19 September 2010", nilai: "86.98", status: "LULUS" },
+            "0113053584": { nama: "Cahaya Lestari", jk: "Perempuan", tgl: "14/03/2011", ttl: "Aek Nabara, 14 Maret 2011", nilai: "86.53", status: "LULUS" },
+            "0101742208": { nama: "Datin Marsya Faathihah Syarif", jk: "Perempuan", tgl: "15/12/2010", ttl: "Pekanbaru, 15 Desember 2010", nilai: "85.29", status: "LULUS" },
+            "0108381664": { nama: "Ega Setyawan", jk: "Laki-laki", tgl: "11/12/2010", ttl: "Siak, 11 Desember 2010", nilai: "83.48", status: "LULUS" },
+            "0117173055": { nama: "Filza Farzana", jk: "Perempuan", tgl: "11/05/2011", ttl: "Siak, 11 Mei 2011", nilai: "88.34", status: "LULUS" },
+            "0117486691": { nama: "Lathif Aryansah", jk: "Laki-laki", tgl: "06/02/2011", ttl: "Siak, 6 Februari 2011", nilai: "83.03", status: "LULUS" },
+            "0111109622": { nama: "Lila Amelia Harahap", jk: "Perempuan", tgl: "12/05/2011", ttl: "Pekanbaru, 12 Mei 2011", nilai: "86.01", status: "LULUS" },
+            "0102231878": { nama: "Malakhian Ruby Al-Basri", jk: "Laki-laki", tgl: "08/10/2010", ttl: "Bali, 8 Oktober 2010", nilai: "84.03", status: "LULUS" },
+            "0106025956": { nama: "Najla Kayyasah", jk: "Perempuan", tgl: "09/12/2010", ttl: "Kerinci, 9 Desember 2010", nilai: "84.50", status: "LULUS" }
         };
 
-        let activeNisn = "";
+        let tempNisn = "";
 
         function validasiAwal() {
             const nisn = document.getElementById('nisnInput').value.trim();
             const tgl = document.getElementById('tglInput').value.trim();
             const errorBox = document.getElementById('errorBox');
-
             errorBox.classList.add('hidden');
 
-            if (nisn === "" || tgl === "") {
-                alert("Mohon isi NISN dan Tanggal Lahir lengkap terlebih dahulu!");
-                return;
-            }
-
-            // Validasi kecocokan NISN dan Tanggal Lahir
-            if (databaseSiswa[nisn] && databaseSiswa[nisn].ttl === tgl) {
-                activeNisn = nisn;
+            if (dataSiswa[nisn] && dataSiswa[nisn].tgl === tgl) {
+                tempNisn = nisn;
                 document.getElementById('readyModal').classList.remove('hidden');
             } else {
                 errorBox.classList.remove('hidden');
             }
         }
 
-        function tutupModal() {
-            document.getElementById('readyModal').classList.add('hidden');
-            activeNisn = "";
-        }
+        function tutupModal() { document.getElementById('readyModal').classList.add('hidden'); }
 
         function bukaHasil() {
-            const siswa = databaseSiswa[activeNisn];
+            const s = dataSiswa[tempNisn];
+            document.getElementById('outNama').innerText = s.nama;
+            document.getElementById('outJK').innerText = s.jk;
+            document.getElementById('outTTL').innerText = s.ttl;
+            document.getElementById('outNISN').innerText = tempNisn;
+            document.getElementById('outNilai').innerText = s.nilai;
             
-            // Pasang data ke lembar kelulusan
-            document.getElementById('outNama').innerText = siswa.nama;
-            document.getElementById('outTTL').innerText = siswa.ttl;
-            document.getElementById('outNISN').innerText = activeNisn;
-            document.getElementById('outNilai').innerText = siswa.nilai;
+            document.getElementById('outNarasiSapaan').innerText = (s.jk === "Perempuan") ? "siswi" : "siswa";
             
-            const statusBadge = document.getElementById('outStatus');
-            statusBadge.innerText = siswa.status;
+            const badge = document.getElementById('outStatus');
+            badge.innerText = s.status;
+            badge.className = "inline-block font-black px-6 py-1.5 rounded-lg text-md tracking-[0.2em] uppercase bg-blue-50 text-blue-700 border border-blue-200";
+
+            // LOGIKA PENYUSUN FOTO OTOMATIS BERDASARKAN NISN SISWA DI DRIVE
+            const foto = document.getElementById('fotoSiswa');
+            const placeholder = document.getElementById('placeholderFoto');
             
-            if (siswa.status === "LULUS") {
-                statusBadge.className = "inline-block font-extrabold px-3 py-1 rounded text-sm uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+            // Nama file foto harus sama dengan NISN (misal: 0111552477.jpg) agar trik ini berjalan mulus
+            if (s.status === "LULUS") {
+                foto.src = `https://drive.google.com/thumbnail?id=${tempNisn}&sz=w400`;
+                foto.style.display = 'block';
+                placeholder.style.display = 'none';
             } else {
-                statusBadge.className = "inline-block font-extrabold px-3 py-1 rounded text-sm uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+                foto.style.display = 'none';
+                placeholder.style.display = 'block';
             }
 
-            // Ganti tampilan halaman
             document.getElementById('readyModal').classList.add('hidden');
             document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('resultCard').classList.remove('hidden');
+            document.getElementById('wrapperHasil').classList.remove('hidden');
         }
 
         function kembaliCek() {
             document.getElementById('loginForm').classList.remove('hidden');
-            document.getElementById('resultCard').classList.add('hidden');
+            document.getElementById('wrapperHasil').classList.add('hidden');
             document.getElementById('nisnInput').value = "";
             document.getElementById('tglInput').value = "";
-            activeNisn = "";
+        }
+
+        function unduhGambar() {
+            const kartu = document.getElementById('resultCard');
+            const namaSiswa = document.getElementById('outNama').innerText;
+            
+            html2canvas(kartu, { scale: 2, useCORS: true, allowTaint: false }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Surat_Kelulusan_${namaSiswa}.jpg`;
+                link.href = canvas.toDataURL('image/jpeg', 0.9);
+                link.click();
+            });
         }
     </script>
 </body>
